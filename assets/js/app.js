@@ -465,6 +465,39 @@
     window.open(waLink(text), '_blank', 'noopener');
   }
 
+  /* ---------------- carte de fidélité ---------------- */
+  /* Aucune donnée n'est stockée par le site : le formulaire compose un message
+     WhatsApp que le client envoie lui-même à la boutique. */
+  function fidelitySubmit(e) {
+    e.preventDefault();
+    const nom   = $('#fidName').value.trim();
+    const tel   = $('#fidPhone').value.trim();
+    const optin = $('#fidOptin').checked;
+    const ok    = $('#fidConsent').checked;
+    const err   = $('#fidError');
+
+    const showError = msg => { err.textContent = msg; err.hidden = false; };
+    err.hidden = true;
+
+    if (nom.length < 2) return showError(t('fid.errName'));
+    /* numéro marocain : 06/07 suivi de 8 chiffres, ou format international */
+    const digits = tel.replace(/[^\d+]/g, '');
+    if (!/^(?:(?:\+?212|0)[5-7]\d{8})$/.test(digits)) return showError(t('fid.errPhone'));
+    if (!ok) return showError(t('fid.errConsent'));
+
+    const sep = state.lang === 'ar' ? ': ' : ' : ';
+    const message = [
+      t('wa.fidHello'), '',
+      t('wa.fidName') + sep + nom,
+      t('wa.fidPhone') + sep + tel,
+      t('wa.fidOptin') + sep + (optin ? t('wa.yes') : t('wa.no'))
+    ].join('\n');
+
+    toast(t('fid.ok'));
+    window.open(waLink(message), '_blank', 'noopener');
+    e.target.reset();
+  }
+
   /* ---------------- fiche produit ---------------- */
   function openModal(id) {
     const p = find(id);
@@ -621,6 +654,9 @@
       timer = setTimeout(() => { state.q = e.target.value; renderGrid(); }, 160);
     });
     $('#sort').addEventListener('change', e => { state.sort = e.target.value; renderGrid(); });
+
+    const fid = $('#fidForm');
+    if (fid) fid.addEventListener('submit', fidelitySubmit);
   }
 
   /* ---------------- démarrage ---------------- */
@@ -652,6 +688,11 @@
     set('#mapsBtn', 'href', SHOP.mapsUrl);
     set('#mapCard', 'href', SHOP.mapsUrl);
     renderSocials();
+
+    if (SHOP.loyalty) {
+      set('#loyaltyRatio', 'textContent', SHOP.loyalty.ratio);
+      set('#loyaltyReward', 'textContent', SHOP.loyalty.reward);
+    }
 
     renderGallery();
     renderFootCats();

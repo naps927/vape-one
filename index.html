@@ -21,7 +21,7 @@
 <meta property="og:locale" content="fr_MA">
 <meta property="og:locale:alternate" content="ar_MA">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="assets/css/styles.css?v=4">
+<link rel="stylesheet" href="assets/css/styles.css?v=5">
 </head>
 <body>
 
@@ -68,6 +68,7 @@
       <a href="#boutique" data-i18n="nav.shop"></a>
       <a href="#rechargeable" data-i18n="nav.recharge"></a>
       <a href="#livraison" data-i18n="nav.delivery"></a>
+      <a href="#fidelite" data-i18n="nav.loyalty"></a>
       <a href="#magasin" data-i18n="nav.store"></a>
       <a href="#faq" data-i18n="nav.faq"></a>
     </nav>
@@ -253,6 +254,70 @@
     </div>
   </section>
 
+
+  <!-- ===================== FIDÉLITÉ ===================== -->
+  <section id="fidelite">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <h2 class="display" data-i18n="fid.title"></h2>
+          <p data-i18n="fid.sub"></p>
+        </div>
+      </div>
+
+      <div class="loyalty">
+        <div class="loyalty-rules">
+          <div class="rule">
+            <span class="num">1</span>
+            <div><strong data-i18n="fid.r1"></strong><span data-i18n="fid.r1s"></span></div>
+          </div>
+          <div class="rule">
+            <span class="num">2</span>
+            <div><strong data-i18n="fid.r2"></strong><span id="loyaltyRatio"></span></div>
+          </div>
+          <div class="rule">
+            <span class="num">3</span>
+            <div><strong data-i18n="fid.r3"></strong><span id="loyaltyReward"></span></div>
+          </div>
+        </div>
+
+        <form class="loyalty-form" id="fidForm" novalidate>
+          <h3 class="display" data-i18n="fid.formT"></h3>
+
+          <label class="field">
+            <span data-i18n="fid.name"></span>
+            <input type="text" id="fidName" autocomplete="name" data-i18n-ph="fid.namePh">
+          </label>
+
+          <label class="field">
+            <span data-i18n="fid.phone"></span>
+            <input type="tel" id="fidPhone" autocomplete="tel" data-i18n-ph="fid.phonePh">
+          </label>
+
+          <label class="check">
+            <input type="checkbox" id="fidOptin">
+            <span data-i18n="fid.optin"></span>
+          </label>
+
+          <label class="check">
+            <input type="checkbox" id="fidConsent">
+            <span data-i18n="fid.consent"></span>
+          </label>
+
+          <p class="form-error" id="fidError" hidden></p>
+
+          <button class="btn btn-wa btn-block" type="submit">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.4-.7-1.7-.8s-.4-.1-.5.1-.6.8-.7 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.6-1.2a.4.4 0 0 0 0-.4c0-.1-.5-1.3-.7-1.7s-.4-.4-.5-.4h-.5a.9.9 0 0 0-.7.3 2.8 2.8 0 0 0-.9 2.1 4.9 4.9 0 0 0 1 2.6 11 11 0 0 0 4.2 3.7c1.5.6 2.1.7 2.9.6a2.5 2.5 0 0 0 1.6-1.1 2 2 0 0 0 .1-1.1c0-.1-.2-.2-.4-.3z"/></svg>
+            <span data-i18n="fid.send"></span>
+          </button>
+
+          <p class="mini-note" data-i18n="fid.note"></p>
+          <a class="privacy-link" href="confidentialite.html" data-i18n="fid.privacy"></a>
+        </form>
+      </div>
+    </div>
+  </section>
+
   <!-- ===================== BOUTIQUE ===================== -->
   <section id="magasin">
     <div class="wrap">
@@ -356,7 +421,7 @@
           <li><a href="#magasin" data-i18n="st.hoursT"></a></li>
           <li><a href="#magasin" data-i18n="st.find"></a></li>
           <li><a href="#" data-i18n="ft.legalLink"></a></li>
-          <li><a href="#" data-i18n="ft.privacy"></a></li>
+          <li><a href="confidentialite.html" data-i18n="ft.privacy"></a></li>
         </ul>
       </div>
     </div>
@@ -437,8 +502,8 @@
 
 <div class="toasts" id="toasts"></div>
 
-<script src="assets/js/i18n.js?v=4"></script>
-<script src="assets/js/products.js?v=4"></script>
-<script src="assets/js/app.js?v=4"></script>
+<script src="assets/js/i18n.js?v=5"></script>
+<script src="assets/js/products.js?v=5"></script>
+<script src="assets/js/app.js?v=5"></script>
 </body>
 </html>

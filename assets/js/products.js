@@ -33,6 +33,12 @@ const SHOP = {
   ],
   open247: true,
 
+  /* Programme de fidélité — règles à confirmer avec le patron */
+  loyalty: {
+    ratio:  '1 point par tranche de 10 DH',
+    reward: '100 points = 50 DH de réduction'
+  },
+
   currency: 'DH',
   currencyAr: 'درهم',
   freeShipping: 300,
