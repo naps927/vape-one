@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://vapeone.ma/sitemap.xml
+Sitemap: https://naps927.github.io/vape-one/sitemap.xml
