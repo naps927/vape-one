@@ -243,14 +243,17 @@
     </article>`;
   }
 
+  const usedCategories = () => CATEGORIES.filter(c =>
+    c.id === 'all' || PRODUCTS.some(p => p.category === c.id));
+
   function renderChips() {
-    $('#chips').innerHTML = CATEGORIES.map(c =>
+    $('#chips').innerHTML = usedCategories().map(c =>
       `<button class="chip" data-cat="${c.id}" aria-pressed="${c.id === state.cat}">${esc(L(c))}</button>`
     ).join('');
   }
 
   function renderFootCats() {
-    $('#footCats').innerHTML = CATEGORIES.filter(c => c.id !== 'all')
+    $('#footCats').innerHTML = usedCategories().filter(c => c.id !== 'all')
       .map(c => `<li><a href="#boutique" data-goto="${c.id}">${esc(L(c))}</a></li>`).join('');
   }
 
@@ -625,8 +628,16 @@
   /* ---------------- démarrage ---------------- */
   function init() {
     $('#year').textContent = new Date().getFullYear();
-    $('#statRefs').textContent = PRODUCTS.length;
-    $('#bannerVisual').innerHTML = art(find('vo-pro-kit'), 'banner');
+    const kit = PRODUCTS.find(p => p.category === 'rechargeable');
+    const section = $('#rechargeable');
+    if (kit) {
+      $('#bannerVisual').innerHTML = media(kit, 'banner');
+      $('#bannerVisual').classList.toggle('has-img', !!kit.image);
+    } else {
+      section.hidden = true;
+      const lien = $('.main-nav a[href="#rechargeable"]');
+      if (lien) lien.remove();
+    }
 
     const wa = waLink('');
     $('#waNumber').textContent = SHOP.phoneDisplay;
