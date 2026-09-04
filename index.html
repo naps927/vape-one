@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vape One Shop — Puffs, cigarettes électroniques et e-liquides à Oujda</title>
+<meta name="description" content="Vape One Shop, Oujda : puffs, cigarettes électroniques, e-liquides et accessoires. Ouvert 24 h/24, livraison le jour même à Oujda, commande sur WhatsApp.">
+<link rel="icon" href="assets/img/logo.svg">
+
+<!-- Aperçu des liens partagés.
+     APRÈS l'achat du domaine, remplacer https://vapeone.ma par l'adresse réelle
+     dans les trois lignes ci-dessous : WhatsApp et Facebook exigent des URL complètes. -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Vape One Shop">
+<meta property="og:title" content="Vape One Shop — Oujda">
+<meta property="og:description" content="Puffs, cigarettes électroniques et e-liquides à Oujda. Ouvert 24 h/24, livraison le jour même, commande sur WhatsApp.">
+<meta property="og:url" content="https://vapeone.ma/">
+<meta property="og:image" content="https://vapeone.ma/assets/img/og-cover.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="fr_MA">
+<meta property="og:locale:alternate" content="ar_MA">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+<!-- ===================== CONTRÔLE D'ÂGE ===================== -->
+<div class="agegate" id="agegate" hidden>
+  <div class="agegate-card">
+    <img src="assets/img/logo.png" alt="Vape One Shop" onerror="this.onerror=null;this.src='assets/img/logo.svg'">
+    <h2 data-i18n="age.title"></h2>
+    <p data-i18n="age.text"></p>
+    <div class="agegate-actions">
+      <button class="btn btn-primary btn-block" id="ageYes" data-i18n="age.yes"></button>
+      <button class="btn btn-ghost btn-block" id="ageNo" data-i18n="age.no"></button>
+    </div>
+    <p class="denied" id="ageDenied" hidden data-i18n="age.denied"></p>
+    <small data-i18n="age.legal"></small>
+    <div class="lang-switch small" id="ageLang">
+      <button data-lang="fr">Français</button>
+      <button data-lang="ar">العربية</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== BANDEAU ===================== -->
+<div class="topbar">
+  <div class="wrap">
+    <span data-i18n="top.delivery"></span>
+    <span data-i18n="top.open"></span>
+    <span data-i18n="top.pay"></span>
+  </div>
+</div>
+
+<!-- ===================== HEADER ===================== -->
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="brand" href="#top">
+      <img src="assets/img/logo.png" alt="Vape One Shop" onerror="this.onerror=null;this.src='assets/img/logo.svg'">
+      <span class="brand-text">
+        <strong class="display">Vape One Shop</strong>
+        <small>Oujda · Maroc</small>
+      </span>
+    </a>
+
+    <nav class="main-nav" id="mainNav">
+      <a href="#boutique" data-i18n="nav.shop"></a>
+      <a href="#rechargeable" data-i18n="nav.recharge"></a>
+      <a href="#livraison" data-i18n="nav.delivery"></a>
+      <a href="#magasin" data-i18n="nav.store"></a>
+      <a href="#faq" data-i18n="nav.faq"></a>
+    </nav>
+
+    <div class="header-actions">
+      <div class="lang-switch" id="langSwitch">
+        <button data-lang="fr">FR</button>
+        <button data-lang="ar">ع</button>
+      </div>
+      <button class="icon-btn burger" id="burger" aria-label="Menu" aria-expanded="false">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+      <button class="icon-btn" id="openCart" aria-label="Panier">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
+        <span class="cart-count" id="cartCount" data-empty="true">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow" data-i18n="hero.eyebrow"></span>
+        <h1 class="display"><span data-i18n="hero.title1"></span><br><span class="cy" data-i18n="hero.title2"></span></h1>
+        <p class="lead" data-i18n="hero.lead"></p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#boutique" data-i18n="hero.cta1"></a>
+          <button class="btn btn-wa" data-wa="direct">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.4-.7-1.7-.8s-.4-.1-.5.1-.6.8-.7 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.6-1.2a.4.4 0 0 0 0-.4c0-.1-.5-1.3-.7-1.7s-.4-.4-.5-.4h-.5a.9.9 0 0 0-.7.3 2.8 2.8 0 0 0-.9 2.1 4.9 4.9 0 0 0 1 2.6 11 11 0 0 0 4.2 3.7c1.5.6 2.1.7 2.9.6a2.5 2.5 0 0 0 1.6-1.1 2 2 0 0 0 .1-1.1c0-.1-.2-.2-.4-.3z"/></svg>
+            <span data-i18n="hero.cta2"></span>
+          </button>
+        </div>
+        <div class="hero-stats">
+          <div><strong id="statRefs">—</strong><span data-i18n="hero.stat1"></span></div>
+          <div><strong data-i18n="hero.stat2v"></strong><span data-i18n="hero.stat2"></span></div>
+          <div><strong data-i18n="hero.stat3v"></strong><span data-i18n="hero.stat3"></span></div>
+        </div>
+      </div>
+      <div class="hero-card">
+        <img src="assets/img/logo.png" alt="Vape One Shop, Oujda" onerror="this.onerror=null;this.src='assets/img/logo.svg'">
+      </div>
+    </div>
+
+    <div class="wrap">
+      <div class="perks">
+        <div class="perk">
+          <span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M1 3h15v13H1zM16 8h4l3 3v5h-7z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></span>
+          <div><strong data-i18n="perk1.t"></strong><span data-i18n="perk1.s"></span></div>
+        </div>
+        <div class="perk">
+          <span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+          <div><strong data-i18n="perk2.t"></strong><span data-i18n="perk2.s"></span></div>
+        </div>
+        <div class="perk">
+          <span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 10h20"/></svg></span>
+          <div><strong data-i18n="perk3.t"></strong><span data-i18n="perk3.s"></span></div>
+        </div>
+        <div class="perk">
+          <span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4L3 21l1.1-9A8.4 8.4 0 1 1 21 11.5z"/></svg></span>
+          <div><strong data-i18n="perk4.t"></strong><span data-i18n="perk4.s"></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CATALOGUE ===================== -->
+  <section id="boutique">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <h2 class="display" data-i18n="cat.title"></h2>
+          <p data-i18n="cat.sub"></p>
+        </div>
+      </div>
+
+      <div class="toolbar">
+        <div class="chips" id="chips"></div>
+        <div class="toolbar-right">
+          <label class="search">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+            <input type="search" id="search" data-i18n-ph="cat.search" aria-label="search">
+          </label>
+          <select class="sort" id="sort" aria-label="sort">
+            <option value="pop" data-i18n="cat.sortPop"></option>
+            <option value="asc" data-i18n="cat.sortAsc"></option>
+            <option value="desc" data-i18n="cat.sortDesc"></option>
+            <option value="name" data-i18n="cat.sortName"></option>
+          </select>
+        </div>
+      </div>
+
+      <p class="cat-note" id="catNote"></p>
+      <p class="result-line" id="resultLine"></p>
+      <div class="grid" id="grid"></div>
+    </div>
+  </section>
+
+  <!-- ===================== RECHARGEABLE ===================== -->
+  <section id="rechargeable">
+    <div class="wrap">
+      <div class="banner">
+        <div>
+          <span class="eyebrow" data-i18n="rc.eyebrow"></span>
+          <h2 class="display" data-i18n="rc.title" style="margin:16px 0 12px"></h2>
+          <p data-i18n="rc.text"></p>
+          <ul>
+            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="rc.li1"></span></li>
+            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="rc.li2"></span></li>
+            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="rc.li3"></span></li>
+          </ul>
+          <button class="btn btn-blue" data-goto="rechargeable" data-i18n="rc.cta"></button>
+        </div>
+        <div class="banner-visual" id="bannerVisual"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== LIVRAISON ===================== -->
+  <section id="livraison">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <h2 class="display" data-i18n="dl.title"></h2>
+          <p data-i18n="dl.sub"></p>
+        </div>
+      </div>
+
+      <div class="delivery-grid">
+        <div class="info-card ship-card">
+          <span class="ico"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+          <h3 data-i18n="dl.c1t"></h3>
+          <p data-i18n="dl.c1s"></p>
+        </div>
+        <div class="info-card ship-card">
+          <span class="ico"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M6.3 6.3a8 8 0 0 0 0 11.4M17.7 17.7a8 8 0 0 0 0-11.4M3.5 3.5a12 12 0 0 0 0 17M20.5 20.5a12 12 0 0 0 0-17"/></svg></span>
+          <h3 data-i18n="dl.c2t"></h3>
+          <p data-i18n="dl.c2s"></p>
+        </div>
+        <div class="info-card ship-card">
+          <span class="ico"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 3h15v13H1zM16 8h4l3 3v5h-7z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></span>
+          <h3 data-i18n="dl.c3t"></h3>
+          <p data-i18n="dl.c3s"></p>
+        </div>
+        <div class="info-card ship-card">
+          <span class="ico"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+          <h3 data-i18n="dl.c4t"></h3>
+          <p data-i18n="dl.c4s"></p>
+        </div>
+        <div class="info-card ship-card">
+          <span class="ico"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 10h20"/></svg></span>
+          <h3 data-i18n="dl.c5t"></h3>
+          <p data-i18n="dl.c5s"></p>
+        </div>
+        <div class="info-card ship-card">
+          <span class="ico"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l1.5-5h15L21 9"/><path d="M4 9v11h16V9"/><path d="M3 9h18a3 3 0 0 1-6 0 3 3 0 0 1-6 0 3 3 0 0 1-6 0z"/></svg></span>
+          <h3 data-i18n="dl.c6t"></h3>
+          <p data-i18n="dl.c6s"></p>
+        </div>
+      </div>
+
+      <div class="order-box">
+        <div>
+          <h3 class="display" data-i18n="dl.stepsT"></h3>
+          <ol class="steps">
+            <li><span>1</span><p data-i18n="dl.s1"></p></li>
+            <li><span>2</span><p data-i18n="dl.s2"></p></li>
+            <li><span>3</span><p data-i18n="dl.s3"></p></li>
+          </ol>
+          <p class="mini-note" data-i18n="dl.note"></p>
+        </div>
+        <div class="order-cta">
+          <button class="btn btn-wa btn-lg" data-wa="cart">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.4-.7-1.7-.8s-.4-.1-.5.1-.6.8-.7 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.6-1.2a.4.4 0 0 0 0-.4c0-.1-.5-1.3-.7-1.7s-.4-.4-.5-.4h-.5a.9.9 0 0 0-.7.3 2.8 2.8 0 0 0-.9 2.1 4.9 4.9 0 0 0 1 2.6 11 11 0 0 0 4.2 3.7c1.5.6 2.1.7 2.9.6a2.5 2.5 0 0 0 1.6-1.1 2 2 0 0 0 .1-1.1c0-.1-.2-.2-.4-.3z"/></svg>
+            <span data-i18n="dl.cta"></span>
+          </button>
+          <a class="wa-number" id="waNumber" href="#"></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== BOUTIQUE ===================== -->
+  <section id="magasin">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <h2 class="display" data-i18n="st.title"></h2>
+          <p data-i18n="st.sub"></p>
+        </div>
+      </div>
+      <div class="shop-grid">
+        <div class="info-card">
+          <h3 data-i18n="st.find"></h3>
+          <ul class="info-list">
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <div><strong id="shopAddress"></strong><span data-i18n="st.addrT"></span></div>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+              <div><strong data-i18n="st.hoursT"></strong><span data-i18n="st.hoursS"></span></div>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.1a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+              <div><strong><a id="shopPhone" href="#"></a></strong><span data-i18n="st.phoneS"></span></div>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 6 10-6"/></svg>
+              <div><strong><a id="shopMail" href="#"></a></strong><span data-i18n="st.mailS"></span></div>
+            </li>
+          </ul>
+          <h4 class="follow-title" data-i18n="st.follow"></h4>
+          <div class="follow" id="follow"></div>
+
+          <a class="btn btn-ghost" id="mapsBtn" href="#" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 20l-6 2V6l6-2 6 2 6-2v16l-6 2-6-2z"/><path d="M9 4v16M15 6v16"/></svg>
+            <span data-i18n="st.maps"></span>
+          </a>
+        </div>
+        <div class="shop-gallery" id="shopGallery"></div>
+
+        <a class="info-card map-card" id="mapCard" href="#" target="_blank" rel="noopener" hidden>
+          <div class="map">
+            <div class="pin">
+              <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#e11d2a" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <b>Vape One Shop</b>
+              <span data-i18n="st.mapHint"></span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FAQ ===================== -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <h2 class="display" data-i18n="faq.title"></h2>
+          <p data-i18n="faq.sub"></p>
+        </div>
+      </div>
+      <div class="faq">
+        <details class="qa" open><summary><span data-i18n="faq.q1"></span></summary><p data-i18n="faq.a1"></p></details>
+        <details class="qa"><summary><span data-i18n="faq.q2"></span></summary><p data-i18n="faq.a2"></p></details>
+        <details class="qa"><summary><span data-i18n="faq.q3"></span></summary><p data-i18n="faq.a3"></p></details>
+        <details class="qa"><summary><span data-i18n="faq.q4"></span></summary><p data-i18n="faq.a4"></p></details>
+        <details class="qa"><summary><span data-i18n="faq.q5"></span></summary><p data-i18n="faq.a5"></p></details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="brand" href="#top" style="margin-bottom:14px">
+          <img src="assets/img/logo.png" alt="Vape One Shop" onerror="this.onerror=null;this.src='assets/img/logo.svg'">
+          <span class="brand-text"><strong class="display">Vape One Shop</strong><small>Oujda · Maroc</small></span>
+        </a>
+        <p data-i18n="ft.about"></p>
+        <div class="socials" id="footSocials"></div>
+      </div>
+      <div>
+        <h4 data-i18n="ft.shop"></h4>
+        <ul id="footCats"></ul>
+      </div>
+      <div>
+        <h4 data-i18n="ft.help"></h4>
+        <ul>
+          <li><a href="#livraison" data-i18n="nav.delivery"></a></li>
+          <li><a href="#faq" data-i18n="faq.q1"></a></li>
+          <li><a href="#faq" data-i18n="faq.q4"></a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="ft.info"></h4>
+        <ul>
+          <li><a href="#magasin" data-i18n="st.hoursT"></a></li>
+          <li><a href="#magasin" data-i18n="st.find"></a></li>
+          <li><a href="#" data-i18n="ft.legalLink"></a></li>
+          <li><a href="#" data-i18n="ft.privacy"></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="legal-note">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v5"/><path d="M12 17h.01"/><path d="M10.3 3.9L1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg>
+      <div><strong data-i18n="ft.legalT"></strong> <span data-i18n="ft.legal"></span></div>
+    </div>
+
+    <div class="copyright">
+      <span>© <span id="year">2026</span> Vape One Shop — Oujda, Maroc. <span data-i18n="ft.rights"></span></span>
+      <span id="footPhone"></span>
+    </div>
+  </div>
+</footer>
+
+<!-- ===================== PANIER ===================== -->
+<div class="overlay" id="overlay"></div>
+
+<aside class="drawer" id="drawer" aria-label="Panier">
+  <div class="drawer-head">
+    <h3 class="display" data-i18n="cart.title"></h3>
+    <button class="close-btn" id="closeCart" aria-label="Fermer">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <div class="ship-bar">
+    <span id="shipMsg"></span>
+    <div class="ship-track"><div class="ship-fill" id="shipFill"></div></div>
+  </div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="drawer-foot">
+    <div class="totals">
+      <div><span data-i18n="cart.sub"></span><span id="subTotal"></span></div>
+      <div><span data-i18n="cart.ship"></span><span id="shipCost">—</span></div>
+      <div class="grand"><span data-i18n="cart.total"></span><span id="grandTotal"></span></div>
+    </div>
+    <button class="btn btn-wa btn-block" id="checkout" data-wa="cart">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.4-.7-1.7-.8s-.4-.1-.5.1-.6.8-.7 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.6-1.2a.4.4 0 0 0 0-.4c0-.1-.5-1.3-.7-1.7s-.4-.4-.5-.4h-.5a.9.9 0 0 0-.7.3 2.8 2.8 0 0 0-.9 2.1 4.9 4.9 0 0 0 1 2.6 11 11 0 0 0 4.2 3.7c1.5.6 2.1.7 2.9.6a2.5 2.5 0 0 0 1.6-1.1 2 2 0 0 0 .1-1.1c0-.1-.2-.2-.4-.3z"/></svg>
+      <span data-i18n="cart.order"></span>
+    </button>
+    <p class="pay-note" data-i18n="cart.note"></p>
+  </div>
+</aside>
+
+<!-- ===================== FICHE PRODUIT ===================== -->
+<div class="modal" id="modal" role="dialog" aria-modal="true">
+  <div class="modal-card">
+    <button class="close-btn modal-close" id="closeModal" aria-label="Fermer">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+    <div class="modal-media" id="modalMedia"></div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<!-- ===================== BOUTON WHATSAPP FLOTTANT ===================== -->
+<button class="wa-float" data-wa="cart" aria-label="WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.4-.7-1.7-.8s-.4-.1-.5.1-.6.8-.7 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.6-1.2a.4.4 0 0 0 0-.4c0-.1-.5-1.3-.7-1.7s-.4-.4-.5-.4h-.5a.9.9 0 0 0-.7.3 2.8 2.8 0 0 0-.9 2.1 4.9 4.9 0 0 0 1 2.6 11 11 0 0 0 4.2 3.7c1.5.6 2.1.7 2.9.6a2.5 2.5 0 0 0 1.6-1.1 2 2 0 0 0 .1-1.1c0-.1-.2-.2-.4-.3z"/></svg>
+</button>
+
+<!-- ===================== VISIONNEUSE PHOTOS ===================== -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true">
+  <button class="lb-close" id="lbClose" aria-label="Fermer">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+  </button>
+  <button class="lb-nav lb-prev" id="lbPrev" aria-label="Photo précédente">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+  </button>
+  <figure class="lb-stage">
+    <img id="lbImg" src="" alt="">
+    <figcaption><span id="lbCaption"></span><small id="lbCount"></small></figcaption>
+  </figure>
+  <button class="lb-nav lb-next" id="lbNext" aria-label="Photo suivante">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+  </button>
+</div>
+
+<div class="toasts" id="toasts"></div>
+
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/products.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" width="640" height="640" role="img" aria-label="Vape One Shop">
+  <defs>
+    <linearGradient id="modBody" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3b6bff"/>
+      <stop offset="1" stop-color="#132a8f"/>
+    </linearGradient>
+    <linearGradient id="steel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f2f4f8"/>
+      <stop offset="0.5" stop-color="#a9b0bd"/>
+      <stop offset="1" stop-color="#5d6472"/>
+    </linearGradient>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6"/>
+    </filter>
+  </defs>
+
+  <rect width="640" height="640" fill="#0a0a0c"/>
+
+  <!-- nuage de vapeur -->
+  <g fill="#c9ccd3" opacity="0.92" filter="url(#soft)">
+    <circle cx="196" cy="236" r="86"/>
+    <circle cx="286" cy="176" r="96"/>
+    <circle cx="392" cy="188" r="88"/>
+    <circle cx="462" cy="258" r="80"/>
+    <circle cx="240" cy="318" r="82"/>
+    <circle cx="356" cy="300" r="94"/>
+    <circle cx="452" cy="344" r="70"/>
+    <circle cx="164" cy="330" r="58"/>
+  </g>
+  <g fill="#9aa0ab" opacity="0.55" filter="url(#soft)">
+    <circle cx="270" cy="250" r="60"/>
+    <circle cx="392" cy="268" r="52"/>
+  </g>
+
+  <!-- box mod -->
+  <g>
+    <rect x="277" y="196" width="86" height="150" rx="14" fill="url(#modBody)" stroke="#0a0a0c" stroke-width="7"/>
+    <rect x="291" y="212" width="18" height="112" rx="9" fill="#0a0a0c" opacity="0.45"/>
+    <rect x="331" y="228" width="20" height="34" rx="6" fill="#e8ecf5" opacity="0.75"/>
+    <!-- clearomiseur -->
+    <rect x="296" y="120" width="48" height="80" rx="8" fill="url(#steel)" stroke="#0a0a0c" stroke-width="7"/>
+    <rect x="292" y="150" width="56" height="12" fill="#c8ccd4" stroke="#0a0a0c" stroke-width="5"/>
+    <rect x="304" y="86" width="32" height="40" rx="10" fill="url(#steel)" stroke="#0a0a0c" stroke-width="7"/>
+    <ellipse cx="320" cy="88" rx="16" ry="7" fill="#2b3038" stroke="#0a0a0c" stroke-width="4"/>
+  </g>
+
+  <!-- VAPE ONE -->
+  <g font-family="'Arial Black','Segoe UI Black',Impact,sans-serif" font-weight="900" font-size="104"
+     letter-spacing="1" transform="skewX(-7)">
+    <g text-anchor="start">
+      <text x="150" y="392" textLength="420" lengthAdjust="spacingAndGlyphs"
+            fill="none" stroke="#e11d2a" stroke-width="30" stroke-linejoin="round">VAPE ONE</text>
+      <text x="150" y="392" textLength="420" lengthAdjust="spacingAndGlyphs"
+            fill="none" stroke="#0a0a0c" stroke-width="15" stroke-linejoin="round">VAPE ONE</text>
+      <text x="150" y="392" textLength="420" lengthAdjust="spacingAndGlyphs" fill="#ffffff">VAPE <tspan fill="#ffffff">ON</tspan><tspan fill="#22b8e6">E</tspan></text>
+    </g>
+  </g>
+
+  <!-- éclair -->
+  <g transform="translate(-24,44)"><path d="M104 356 l34 -6 -14 34 30 -8 -44 62 12 -44 -32 8 z" fill="#22b8e6" stroke="#0a0a0c" stroke-width="6" stroke-linejoin="round"/></g>
+
+  <!-- SHOP -->
+  <g font-family="'Arial Black','Helvetica Neue',Impact,sans-serif" font-weight="900" font-size="34" letter-spacing="3">
+    <text x="452" y="438" fill="none" stroke="#0a0a0c" stroke-width="10" stroke-linejoin="round">SHOP</text>
+    <text x="452" y="438" fill="#ffffff">SHOP</text>
+  </g>
+
+  <text x="320" y="524" text-anchor="middle" font-family="'Segoe UI',Arial,sans-serif" font-size="18" fill="#cfd3da"
+        letter-spacing="0.5">- Boutique de Cigarette électronique et E-liquides Oujda MAROC -</text>
+</svg>
