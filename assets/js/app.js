@@ -477,6 +477,9 @@
     let v = String(raw).replace(/[\s.\-()–—]/g, '');
     if (v.startsWith('00')) v = '+' + v.slice(2);
 
+    /* sans indicatif ni zéro initial, on complète avec l'indicatif marocain */
+    if (v && !v.startsWith('+') && !v.startsWith('0')) v = '+212' + v;
+
     const international = v.startsWith('+');
     const chiffres = v.replace(/\D/g, '');
 
@@ -688,6 +691,16 @@
 
     const fid = $('#fidForm');
     if (fid) fid.addEventListener('submit', fidelitySubmit);
+
+    const champTel = $('#fidPhone');
+    if (champTel) {
+      const majPrefixe = () => {
+        const perso = /^\s*(\+|00|0)/.test(champTel.value);
+        champTel.closest('.tel-field').classList.toggle('own-code', perso);
+      };
+      champTel.addEventListener('input', majPrefixe);
+      fid.addEventListener('reset', () => setTimeout(majPrefixe, 0));
+    }
   }
 
   /* ---------------- démarrage ---------------- */

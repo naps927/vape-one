@@ -832,3 +832,14 @@ footer { border-top: 1px solid var(--line-soft); margin-top: 40px; padding: 46px
   font-style: normal; font-size: 11.5px; font-weight: 700; color: var(--faint);
   text-transform: uppercase; letter-spacing: .05em; margin-inline-start: 6px;
 }
+
+/* indicatif affiché en gris dans le champ téléphone */
+.tel-field { position: relative; display: block; }
+.tel-field .tel-prefix {
+  position: absolute; inset-inline-start: 15px; top: 50%; transform: translateY(-50%);
+  color: var(--faint); font-size: 15px; pointer-events: none;
+  transition: opacity .15s;
+}
+.tel-field input { padding-inline-start: 60px; }
+.tel-field.own-code .tel-prefix { opacity: 0; }
+.tel-field.own-code input { padding-inline-start: 15px; }
