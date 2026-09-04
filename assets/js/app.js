@@ -244,17 +244,14 @@
     </article>`;
   }
 
-  const usedCategories = () => CATEGORIES.filter(c =>
-    c.id === 'all' || PRODUCTS.some(p => p.category === c.id));
-
   function renderChips() {
-    $('#chips').innerHTML = usedCategories().map(c =>
+    $('#chips').innerHTML = CATEGORIES.map(c =>
       `<button class="chip" data-cat="${c.id}" aria-pressed="${c.id === state.cat}">${esc(L(c))}</button>`
     ).join('');
   }
 
   function renderFootCats() {
-    $('#footCats').innerHTML = usedCategories().filter(c => c.id !== 'all')
+    $('#footCats').innerHTML = CATEGORIES.filter(c => c.id !== 'all')
       .map(c => `<li><a href="#boutique" data-goto="${c.id}">${esc(L(c))}</a></li>`).join('');
   }
 
