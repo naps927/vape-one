@@ -825,3 +825,5 @@ footer { border-top: 1px solid var(--line-soft); margin-top: 40px; padding: 46px
 .legal-page .rtl { direction: rtl; text-align: right; }
 .back-link { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 26px; color: var(--muted); font-size: 14px; }
 .back-link:hover { color: var(--text); }
+
+.field .hint { color: var(--faint); font-size: 12px; line-height: 1.45; }

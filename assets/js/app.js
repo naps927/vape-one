@@ -465,6 +465,21 @@
     window.open(waLink(text), '_blank', 'noopener');
   }
 
+  /* Numéro de téléphone : marocain ou international.
+     Renvoie le numéro au format +indicatif, ou null s'il est invalide. */
+  function normalizePhone(raw) {
+    let v = String(raw).replace(/[\s.\-()–—]/g, '');
+    if (v.startsWith('00')) v = '+' + v.slice(2);
+
+    const international = v.startsWith('+');
+    const chiffres = v.replace(/\D/g, '');
+
+    if (international) return /^[1-9]\d{7,14}$/.test(chiffres) ? '+' + chiffres : null;
+    /* format local marocain : 0 suivi de 9 chiffres */
+    if (/^0[5-8]\d{8}$/.test(chiffres)) return '+212' + chiffres.slice(1);
+    return null;
+  }
+
   /* ---------------- carte de fidélité ---------------- */
   /* Aucune donnée n'est stockée par le site : le formulaire compose un message
      WhatsApp que le client envoie lui-même à la boutique. */
@@ -480,16 +495,16 @@
     err.hidden = true;
 
     if (nom.length < 2) return showError(t('fid.errName'));
-    /* numéro marocain : 06/07 suivi de 8 chiffres, ou format international */
-    const digits = tel.replace(/[^\d+]/g, '');
-    if (!/^(?:(?:\+?212|0)[5-7]\d{8})$/.test(digits)) return showError(t('fid.errPhone'));
+
+    const numero = normalizePhone(tel);
+    if (!numero) return showError(t('fid.errPhone'));
     if (!ok) return showError(t('fid.errConsent'));
 
     const sep = state.lang === 'ar' ? ': ' : ' : ';
     const message = [
       t('wa.fidHello'), '',
       t('wa.fidName') + sep + nom,
-      t('wa.fidPhone') + sep + tel,
+      t('wa.fidPhone') + sep + numero,
       t('wa.fidOptin') + sep + (optin ? t('wa.yes') : t('wa.no'))
     ].join('\n');
 
