@@ -480,7 +480,11 @@
     const international = v.startsWith('+');
     const chiffres = v.replace(/\D/g, '');
 
-    if (international) return /^[1-9]\d{7,14}$/.test(chiffres) ? '+' + chiffres : null;
+    if (international) {
+      /* +212 0612345678 : le zéro national est en trop, on le retire */
+      let n = chiffres.replace(/^2120+/, '212');
+      return /^[1-9]\d{7,14}$/.test(n) ? '+' + n : null;
+    }
     /* format local marocain : 0 suivi de 9 chiffres */
     if (/^0[5-8]\d{8}$/.test(chiffres)) return '+212' + chiffres.slice(1);
     return null;
