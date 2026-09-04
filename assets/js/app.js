@@ -45,8 +45,9 @@
     $$('#langSwitch button, #ageLang button').forEach(b =>
       b.classList.toggle('active', b.dataset.lang === state.lang));
 
-    $('#shopAddress').textContent = state.lang === 'ar' ? SHOP.addressAr : SHOP.address;
-    $('#footPhone').textContent = SHOP.phoneDisplay;
+    const adr = $('#shopAddress'), tel = $('#footPhone');
+    if (adr) adr.textContent = state.lang === 'ar' ? SHOP.addressAr : SHOP.address;
+    if (tel) tel.textContent = SHOP.phoneDisplay;
 
     if (rerender) { renderChips(); renderGrid(); renderCart(); renderFootCats(); captionGallery(); }
   }
@@ -627,29 +628,33 @@
 
   /* ---------------- démarrage ---------------- */
   function init() {
-    $('#year').textContent = new Date().getFullYear();
+    /* Chaque accès est protégé : si un élément manque (page plus ancienne que
+       le script, en cache par exemple), la boutique continue de fonctionner. */
+    const set = (sel, prop, val) => { const el = $(sel); if (el) el[prop] = val; };
+
+    set('#year', 'textContent', new Date().getFullYear());
+    set('#statRefs', 'textContent', PRODUCTS.length);
     const kit = PRODUCTS.find(p => p.category === 'rechargeable');
     const section = $('#rechargeable');
-    if (kit) {
-      $('#bannerVisual').innerHTML = media(kit, 'banner');
-      $('#bannerVisual').classList.toggle('has-img', !!kit.image);
+    if (!section) { /* section absente */ }
+    else if (kit) {
+      const bv = $('#bannerVisual');
+      if (bv) { bv.innerHTML = media(kit, 'banner'); bv.classList.toggle('has-img', !!kit.image); }
     } else {
       section.hidden = true;
       const lien = $('.main-nav a[href="#rechargeable"]');
       if (lien) lien.remove();
     }
 
-    const wa = waLink('');
-    $('#waNumber').textContent = SHOP.phoneDisplay;
-    $('#waNumber').href = wa;
-    $('#shopPhone').textContent = SHOP.phoneDisplay;
-    $('#shopPhone').href = 'tel:' + SHOP.phoneDisplay.replace(/\s/g, '');
-    $('#shopMail').textContent = SHOP.email;
-    $('#shopMail').href = 'mailto:' + SHOP.email;
+    set('#waNumber', 'textContent', SHOP.phoneDisplay);
+    set('#waNumber', 'href', waLink(''));
+    set('#shopPhone', 'textContent', SHOP.phoneDisplay);
+    set('#shopPhone', 'href', 'tel:' + SHOP.phoneDisplay.replace(/\s/g, ''));
+    set('#shopMail', 'textContent', SHOP.email);
+    set('#shopMail', 'href', 'mailto:' + SHOP.email);
+    set('#mapsBtn', 'href', SHOP.mapsUrl);
+    set('#mapCard', 'href', SHOP.mapsUrl);
     renderSocials();
-
-    $('#mapsBtn').href = SHOP.mapsUrl;
-    $('#mapCard').href = SHOP.mapsUrl;
 
     renderGallery();
     renderFootCats();
