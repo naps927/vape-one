@@ -49,6 +49,12 @@
     if (adr) adr.textContent = state.lang === 'ar' ? SHOP.addressAr : SHOP.address;
     if (tel) tel.textContent = SHOP.phoneDisplay;
 
+    if (SHOP.loyalty) {
+      const r1 = $('#loyaltyRatio'), r2 = $('#loyaltyReward');
+      if (r1) r1.textContent = L(SHOP.loyalty.ratio);
+      if (r2) r2.textContent = L(SHOP.loyalty.reward);
+    }
+
     if (rerender) { renderChips(); renderGrid(); renderCart(); renderFootCats(); captionGallery(); }
   }
 
@@ -705,8 +711,8 @@
     renderSocials();
 
     if (SHOP.loyalty) {
-      set('#loyaltyRatio', 'textContent', SHOP.loyalty.ratio);
-      set('#loyaltyReward', 'textContent', SHOP.loyalty.reward);
+      set('#loyaltyRatio', 'textContent', L(SHOP.loyalty.ratio));
+      set('#loyaltyReward', 'textContent', L(SHOP.loyalty.reward));
     }
 
     renderGallery();

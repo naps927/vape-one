@@ -33,10 +33,12 @@ const SHOP = {
   ],
   open247: true,
 
-  /* Programme de fidélité — règles à confirmer avec le patron */
+  /* Programme de fidélité — retour d'environ 3,3 % du montant dépensé */
   loyalty: {
-    ratio:  '1 point par tranche de 10 DH',
-    reward: '100 points = 50 DH de réduction'
+    ratio:  { fr: '1 point par tranche de 10 DH dépensés',
+              ar: 'نقطة واحدة عن كل 10 دراهم' },
+    reward: { fr: '150 points = 50 DH de réduction',
+              ar: '150 نقطة = تخفيض 50 درهم' }
   },
 
   currency: 'DH',
