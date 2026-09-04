@@ -504,6 +504,11 @@
 
     const numero = normalizePhone(tel);
     if (!numero) return showError(t('fid.errPhone'));
+
+    /* e-mail facultatif : contrôlé seulement s'il est renseigné */
+    const mail = $('#fidMail') ? $('#fidMail').value.trim() : '';
+    if (mail && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(mail)) return showError(t('fid.errMail'));
+
     if (!ok) return showError(t('fid.errConsent'));
 
     const sep = state.lang === 'ar' ? ': ' : ' : ';
@@ -511,8 +516,9 @@
       t('wa.fidHello'), '',
       t('wa.fidName') + sep + nom,
       t('wa.fidPhone') + sep + numero,
+      mail ? t('wa.fidMail') + sep + mail : null,
       t('wa.fidOptin') + sep + (optin ? t('wa.yes') : t('wa.no'))
-    ].join('\n');
+    ].filter(Boolean).join('\n');
 
     toast(t('fid.ok'));
     window.open(waLink(message), '_blank', 'noopener');
